@@ -1,54 +1,48 @@
 question,expected_keyword,answer,correct,prompt_version
-What is LlamaIndex?,framework,"**LlamaIndex** is a data‑management framework that bridges private documents and large language models (LLMs). It ingests various data sources (APIs, PDFs, SQL databases, etc.), splits long texts into manageable chunks, builds searchable indices or graph structures, and supplies a query engine that retrieves relevant passages and feeds them to an LLM for retrieval‑augmented generation (RAG). The framework offers both a high‑level API for quick starts and lower‑level APIs for advanced customization of retrievers, indices, and response synthesis.",True,v1_basic
-What does LlamaIndex connect?,documents,LlamaIndex connects **private documents (or other data sources) to large language models**.,True,v1_basic
-What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL,"LlamaIndex can ingest a variety of data sources through its connectors, including:
+What is LlamaIndex?,framework,"**LlamaIndex** is a data‑management framework that bridges private documents and large language models (LLMs). It ingests a wide variety of data sources (APIs, PDFs, documents, SQL databases, etc.), splits long texts into manageable chunks, builds searchable indices (including vector‑store indices for embeddings), and supplies a query engine that retrieves relevant context and feeds it to an LLM. In short, LlamaIndex enables retrieval‑augmented generation (RAG) so that LLMs can answer questions based on your own data rather than only their training corpus.",True,v1_basic
+What does LlamaIndex connect?,documents,LlamaIndex connects private documents (and other data sources) to large language models.,True,v1_basic
+What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL,"LlamaIndex can ingest a variety of data sources through its built‑in connectors, such as:
 
-- **APIs** (e.g., RESTful services)
-- **PDF files**
-- **General documents** (text, Word, etc.)
-- **SQL databases** (tables, queries)
+- **APIs** – Pull data directly from web services or custom endpoints.  
+- **PDFs** – Read and chunk PDF files for indexing.  
+- **Documents** – Handle common document formats (e.g., Word, text files).  
+- **SQL databases** – Connect to relational databases and index table contents.  
 
-These connectors allow you to bring in data from many common formats and storage systems into LlamaIndex’s indices for retrieval‑augmented generation.",True,v1_basic
-What does a vector store index store?,embeddings,A vector store index stores the **embeddings of text chunks** (vector representations) so it can retrieve the most similar chunks for a query.,True,v1_basic
-What is chunking?,chunks|pieces|splits,"Chunking is the process of breaking a long document into smaller, manageable pieces—typically a few hundred characters each—so that relevant passages can be retrieved and fed to a language model within its context window.",True,v1_basic
+These connectors allow you to bring virtually any structured or semi‑structured content into LlamaIndex for retrieval‑augmented generation.",True,v1_basic
+What does a vector store index store?,embeddings,A vector store index stores **embeddings of text chunks** (vector representations of the document pieces) so it can retrieve the most similar chunks for a query.,True,v1_basic
+What is chunking?,chunks|pieces|splits,"Chunking is the process of breaking a long document into smaller, manageable pieces—typically a few hundred characters each. This makes it easier to locate and retrieve the most relevant passages for a given query, and ensures that the text sent to a language model stays within its context window.",True,v1_basic
 What does a query engine do?,retrieves|pulls|relevant,"A query engine takes a user’s question, pulls the most relevant passages from the index, and feeds that context to a language model so it can generate an answer based on the retrieved private documents.",True,v1_basic
-What is retrieval augmented generation?,search,"**Retrieval‑augmented generation (RAG)** is a method that blends a search‑based retrieval step with a language‑model generation step.  
-1. **Retrieval** – The system queries an indexed knowledge base (e.g., PDFs, databases, APIs) to pull the most relevant passages or documents for a user’s question.  
-2. **Augmentation** – Those retrieved passages are fed as context to the language model.  
-3. **Generation** – The model then produces an answer that is grounded in the retrieved content rather than relying solely on its pre‑trained knowledge.
+What is retrieval augmented generation?,search,"**Retrieval Augmented Generation (RAG)** is a technique that blends a search‑or‑retrieval step with a language model’s generation step.  
+1. **Retrieval**: A query engine looks up relevant passages or documents from a structured index (e.g., a vector store) that contains embeddings of your private data.  
+2. **Augmentation**: The retrieved context is fed into the language model as part of its prompt.  
+3. **Generation**: The model then produces an answer that is grounded in the retrieved material rather than relying solely on its pre‑trained knowledge.
 
-In short, RAG lets an LLM answer questions using up‑to‑date, private, or domain‑specific documents, ensuring responses are accurate and tailored to the user’s data.",True,v1_basic
-What do LlamaIndex's lower-level APIs allow?,customize,"LlamaIndex’s lower‑level APIs let advanced users **customize the core components** of the RAG pipeline—specifically, they can tweak or replace the **retrievers, indices, and response synthesizers** to fit their own data and workflow needs.",True,v1_basic
-Who created LlamaIndex?,,LlamaIndex was created by Connor Leahy.,False,v1_basic
-What is a vector store?,embeddings,"A **vector store** is a specialized database that holds high‑dimensional numeric vectors—typically embeddings generated by a language model—from pieces of text (or other data).  
-
-Key points:
-
-| Feature | What it means |
-|---------|---------------|
-| **Embeddings** | Each chunk of text is converted into a vector (e.g., 768‑dimensional) that captures its semantic meaning. |
-| **Storage** | The vectors, along with metadata (e.g., source document, chunk ID, timestamp), are stored in a format that supports fast similarity queries. |
-| **Indexing** | Data structures such as IVF, HNSW, or tree‑based indexes (often implemented by libraries like FAISS, Annoy, or Milvus) enable efficient approximate nearest‑neighbor search. |
-| **Retrieval** | Given a query vector, the store returns the most similar vectors (and their associated text) in sub‑millisecond time, even for millions of entries. |
-| **Use in RAG** | The retrieved text chunks are fed to a language model as context, allowing the model to answer questions grounded in private documents rather than just its training data. |
-
-In LlamaIndex, a **vector store index** is the component that keeps these embeddings and performs the similarity search, feeding the relevant passages to the query engine for answer generation.",True,v1_basic
+In short, RAG lets an LLM answer questions using up‑to‑date, domain‑specific documents instead of just its training data.",True,v1_basic
+What do LlamaIndex's lower-level APIs allow?,customize,"LlamaIndex’s lower‑level APIs let advanced users **customize the core components** of the RAG pipeline: they can build and tweak **retrievers, indices (including vector‑store and graph indices), and response‑synthesizer logic** to fit their specific use case.",True,v1_basic
+Who created LlamaIndex?,,,False,v1_basic
+What is a vector store?,embeddings,"A **vector store** is a specialized database that holds high‑dimensional vectors—usually embeddings generated from text, images, or other data. In the context of LlamaIndex, each chunk of a document is converted into an embedding vector and stored in the vector store. When a query arrives, the vector store quickly finds the vectors most similar to the query’s embedding (often using approximate nearest‑neighbor algorithms) and returns the corresponding text chunks. This similarity search is the core of retrieval‑augmented generation (RAG), allowing the language model to answer questions based on the most relevant private documents rather than only its training data.",True,v1_basic
 What is the capital of France?,,Paris.,False,v1_basic
-Does LlamaIndex train large language models?,,"No. LlamaIndex is a **data‑management and retrieval framework** that works with existing large language models (LLMs). It ingests, chunks, indexes, and retrieves information from your private documents, then feeds that context to an LLM for generation. It does **not** train or fine‑tune LLMs itself.",False,v1_basic
-What is LlamaIndex?,framework,"LlamaIndex is a data framework that connects private documents to large language models, offering connectors for various data sources, tools for chunking and indexing (including vector store indices), and a query engine that retrieves relevant context for retrieval‑augmented generation.",True,v2_grounded
-What does LlamaIndex connect?,documents,"LlamaIndex connects private documents—such as PDFs, APIs, and databases—to large language models, enabling the models to retrieve and use that specific data for answering queries.",True,v2_grounded
+Does LlamaIndex train large language models?,,"No. LlamaIndex is a **data‑management and retrieval framework** that works with existing large language models (LLMs). It does not train or fine‑tune LLMs itself; instead it:
+
+1. Ingests and structures your private data (APIs, PDFs, SQL, etc.).  
+2. Builds indices/graphs (e.g., vector‑store indices) for efficient retrieval.  
+3. Provides chunking, query engines, and RAG pipelines that feed the retrieved context to an LLM for answer generation.
+
+If you need to train or fine‑tune an LLM, you would use a separate training framework or service; LlamaIndex focuses on the data side of the LLM workflow.",False,v1_basic
+What is LlamaIndex?,framework,"LlamaIndex is a data framework that connects private documents to large language models, offering connectors for various data sources, tools for chunking and indexing text, and a query engine that retrieves relevant passages for retrieval‑augmented generation.",True,v2_grounded
+What does LlamaIndex connect?,documents,"LlamaIndex connects private documents—such as PDFs, APIs, and databases—to large language models, enabling the models to retrieve and use that specific data when answering queries.",True,v2_grounded
 What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL,"LlamaIndex can ingest a variety of data sources through its connectors, such as APIs, PDFs, other document formats, and SQL databases.",True,v2_grounded
 What does a vector store index store?,embeddings,A vector store index stores embeddings of text chunks. It uses these embeddings to retrieve the most similar chunks when a query is made.,True,v2_grounded
 What is chunking?,chunks|pieces|splits,Chunking splits long documents into smaller pieces—typically a few hundred characters each—so that relevant passages can be retrieved and fed to the model within its context limit.,True,v2_grounded
-What does a query engine do?,retrieves|pulls|relevant,"A query engine takes a user’s question, retrieves the most relevant passages from the LlamaIndex, and then feeds that context to a language model so it can generate an answer based on the retrieved information.",True,v2_grounded
-What is retrieval augmented generation?,search,"Retrieval augmented generation (RAG) is a technique that combines a search step with a language model, enabling the model to answer questions using information retrieved from private documents rather than relying solely on its training data.",True,v2_grounded
+What does a query engine do?,retrieves|pulls|relevant,"A query engine takes a user’s question, retrieves the most relevant passages from the LlamaIndex index, and then feeds that context to a language model so it can generate an answer based on the retrieved information.",True,v2_grounded
+What is retrieval augmented generation?,search,"Retrieval augmented generation (RAG) is a method that combines a search or retrieval step with a language model, allowing the model to generate answers based on information pulled from private documents rather than relying solely on its pre‑trained knowledge.",True,v2_grounded
 What do LlamaIndex's lower-level APIs allow?,customize,"LlamaIndex’s lower‑level APIs let advanced users tailor the system to their needs by customizing components such as retrievers, indices, and response synthesizers.",False,v2_grounded
 Who created LlamaIndex?,,"I’m sorry, but the provided context doesn’t include information about who created LlamaIndex.",False,v2_grounded
-What is a vector store?,embeddings,A vector store is an index that holds embeddings of text chunks and can quickly retrieve the most similar chunks when a query is made. It enables efficient similarity search over the embedded data.,True,v2_grounded
+What is a vector store?,embeddings,A vector store is an index that holds embeddings of text chunks and can quickly retrieve the most similar chunks when a query is made. It enables efficient similarity search over the embedded representations of documents.,True,v2_grounded
 What is the capital of France?,,"I’m sorry, but I can’t answer that.",False,v2_grounded
-Does LlamaIndex train large language models?,,No. LlamaIndex is a data‑management framework that prepares and retrieves information for large language models; it does not train or fine‑tune the models themselves.,False,v2_grounded
-What is LlamaIndex?,framework,LlamaIndex is a data framework that helps connect private documents to large language models.,True,v3_refuse
-What does LlamaIndex connect?,documents,It connects private documents to large language models.,True,v3_refuse
+Does LlamaIndex train large language models?,,No. LlamaIndex is a data‑management framework that prepares and retrieves information for large language models; it does not train the models themselves.,False,v2_grounded
+What is LlamaIndex?,framework,"LlamaIndex is a data framework that connects private documents to large language models, providing connectors for various data sources, tools for chunking and indexing, and a query engine that retrieves relevant context for RAG (retrieval‑augmented generation).",True,v3_refuse
+What does LlamaIndex connect?,documents,LlamaIndex connects private documents to large language models.,True,v3_refuse
 What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL,"APIs, PDFs, documents, and SQL databases.",True,v3_refuse
 What does a vector store index store?,embeddings,Embeddings of text chunks.,True,v3_refuse
 What is chunking?,chunks|pieces|splits,Chunking splits long documents into smaller pieces—usually a few hundred characters each—so that relevant passages can be found and sent to the model within its context limit.,True,v3_refuse

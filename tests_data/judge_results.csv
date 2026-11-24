@@ -1,13 +1,13 @@
 question,keyword_correct,judge_score,judge_reason,answer
-What is LlamaIndex?,True,1,The system answer matches the reference exactly.,LlamaIndex is a data framework that helps connect private documents to large language models.
-What does LlamaIndex connect?,True,1,The system answer matches the reference answer exactly.,It connects private documents to large language models.
-What kinds of data sources can LlamaIndex ingest?,True,1,Matches the reference answer exactly.,"APIs, PDFs, documents, and SQL databases."
-What does a vector store index store?,True,1,"The system answer correctly states that a vector store index stores embeddings of text chunks, matching the reference.",Embeddings of text chunks.
-What is chunking?,True,1,System answer matches reference and adds only reasonable details.,Chunking splits long documents into smaller pieces—usually a few hundred characters each—so that relevant passages can be found and sent to the model within its context limit.
-What does a query engine do?,True,1,Matches the reference answer.,"A query engine takes a question, retrieves relevant context from the index, and asks the language model to write an answer based on that context."
-What is retrieval augmented generation?,True,1,The system answer matches the reference exactly and contains no unsupported claims.,Retrieval augmented generation (RAG) combines a search step with a language model so the model answers from retrieved private documents instead of only from its training data.
-What do LlamaIndex's lower-level APIs allow?,True,1,The system answer matches the reference and adds no unsupported claims.,"They let advanced users customize the system – tweaking retrievers, building and tweaking indices, and configuring how responses are synthesized."
-Who created LlamaIndex?,True,1,"System says it does not know, matching the reference.",I don't know.
+What is LlamaIndex?,True,0,Adds claims not present in the reference answer,"LlamaIndex is a data framework that connects private documents to large language models, providing connectors for various data sources, tools for chunking and indexing, and a query engine that retrieves relevant context for RAG (retrieval‑augmented generation)."
+What does LlamaIndex connect?,True,1,The system answer matches the reference answer exactly.,LlamaIndex connects private documents to large language models.
+What kinds of data sources can LlamaIndex ingest?,True,1,Matches the reference exactly,"APIs, PDFs, documents, and SQL databases."
+What does a vector store index store?,True,1,The system answer matches the reference exactly.,Embeddings of text chunks.
+What is chunking?,True,1,The system answer matches the reference and adds only reasonable details.,Chunking splits long documents into smaller pieces—typically a few hundred characters each—so that relevant passages can be found and sent to the model within its context limit.
+What does a query engine do?,True,1,The system answer accurately reflects the reference answer.,"It takes a user’s question, pulls the relevant passages from the index, and then feeds that context to a language model so it can generate an answer based on the retrieved material."
+What is retrieval augmented generation?,True,1,The system answer matches the reference exactly and adds no unsupported claims.,Retrieval augmented generation (RAG) combines a search step with a language model so the model answers from retrieved private documents instead of only from its training data.
+What do LlamaIndex's lower-level APIs allow?,True,1,The system answer matches the reference answer exactly.,"They let advanced users customize retrievers, indices, and response synthesizers."
+Who created LlamaIndex?,True,1,System answer matches the unknown status.,I don't know.
 What is a vector store?,True,1,The system answer matches the reference and adds no unsupported claims.,A vector store index stores embeddings of text chunks and retrieves the most similar chunks for a query.
-What is the capital of France?,True,1,System answer matches the reference that the answer is unknown.,I don't know.
-Does LlamaIndex train large language models?,True,1,System answer matches the reference by stating uncertainty.,I don't know.
+What is the capital of France?,True,1,System answer matches the unknown response.,I don't know.
+Does LlamaIndex train large language models?,True,1,System answer correctly states it does not know.,I don't know.
