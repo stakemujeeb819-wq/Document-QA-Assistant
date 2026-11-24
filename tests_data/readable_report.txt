@@ -1,0 +1,14 @@
+question                                          | expected_keyword         | v1_basic | v2_grounded | v3_refuse
+--------------------------------------------------+--------------------------+----------+-------------+----------
+What is LlamaIndex?                               | framework                | PASS     | PASS        | PASS     
+What does LlamaIndex connect?                     | documents                | PASS     | PASS        | PASS     
+What kinds of data sources can LlamaIndex ingest? | APIs|PDFs|SQL            | PASS     | PASS        | PASS     
+What does a vector store index store?             | embeddings               | PASS     | PASS        | PASS     
+What is chunking?                                 | chunks|pieces|splits     | PASS     | PASS        | PASS     
+What does a query engine do?                      | retrieves|pulls|relevant | PASS     | PASS        | PASS     
+What is retrieval augmented generation?           | search                   | PASS     | PASS        | PASS     
+What do LlamaIndex's lower-level APIs allow?      | customize                | PASS     | FAIL        | PASS     
+Who created LlamaIndex?                           | (should refuse)          | FAIL     | FAIL        | PASS     
+What is a vector store?                           | embeddings               | PASS     | PASS        | PASS     
+What is the capital of France?                    | (should refuse)          | FAIL     | FAIL        | PASS     
+Does LlamaIndex train large language models?      | (should refuse)          | FAIL     | FAIL        | PASS     
