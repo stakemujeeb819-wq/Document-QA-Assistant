@@ -4,3 +4,5 @@ __pycache__/
 *.pycuploads/
 tests_data/app.db
 tests_data/chroma_db/
+logs/
+tests_data/batch_runs/
