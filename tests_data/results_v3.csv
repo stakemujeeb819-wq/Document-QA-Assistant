@@ -1,5 +1,13 @@
 question,expected_keyword,answer,correct,prompt_version
 What is LlamaIndex?,framework,LlamaIndex is a data framework that helps connect private documents to large language models.,True,v3_refuse
-What does LlamaIndex connect?,documents,private documents to large language models,True,v3_refuse
+What does LlamaIndex connect?,documents,It connects private documents to large language models.,True,v3_refuse
+What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL,"APIs, PDFs, documents, and SQL databases.",True,v3_refuse
+What does a vector store index store?,embeddings,Embeddings of text chunks.,True,v3_refuse
+What is chunking?,chunks|pieces|splits,Chunking splits long documents into smaller pieces—typically a few hundred characters each—so that relevant passages can be found and sent to the model within its context limit.,True,v3_refuse
+What does a query engine do?,retrieves|pulls|relevant,"It takes a user’s question, pulls the relevant passages from the index, and then feeds that context to a language model so it can generate an answer based on the retrieved material.",True,v3_refuse
+What is retrieval augmented generation?,search,Retrieval augmented generation (RAG) combines a search step with a language model so the model answers from retrieved private documents instead of only from its training data.,True,v3_refuse
+What do LlamaIndex's lower-level APIs allow?,customize,"They let advanced users customize the system – tweaking retrievers, building and tuning indices, and configuring the response‑synthesizing logic.",True,v3_refuse
 Who created LlamaIndex?,,I don't know.,True,v3_refuse
-What is a vector store?,,I don't know.,True,v3_refuse
+What is a vector store?,embeddings,A vector store is an index that stores embeddings of text chunks and retrieves the most similar chunks for a query.,True,v3_refuse
+What is the capital of France?,,I don't know.,True,v3_refuse
+Does LlamaIndex train large language models?,,I don't know.,True,v3_refuse

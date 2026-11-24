@@ -1,5 +1,13 @@
 question,expected_keyword
 What is LlamaIndex?,framework
 What does LlamaIndex connect?,documents
+What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL
+What does a vector store index store?,embeddings
+What is chunking?,chunks|pieces|splits
+What does a query engine do?,retrieves|pulls|relevant
+What is retrieval augmented generation?,search
+What do LlamaIndex's lower-level APIs allow?,customize
 Who created LlamaIndex?,
-What is a vector store?,
+What is a vector store?,embeddings
+What is the capital of France?,
+Does LlamaIndex train large language models?,

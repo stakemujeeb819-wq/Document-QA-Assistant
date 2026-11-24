@@ -3,7 +3,21 @@ import pandas as pd
 from src.document_store import DocumentStore
 from src.evaluation import load_questions
 from src.rag import RAGPipeline
-from src.prompts import PROMPTS
+
+
+def is_correct(answer: str, keyword_field: str) -> bool:
+    """Check the answer against one or more acceptable keywords.
+
+    keyword_field examples:
+      "framework"       -> answer must contain "framework"
+      "APIs|PDFs|SQL"   -> answer must contain any one of them
+      ""                -> answer must say it doesn't know
+    """
+    answer_lower = answer.lower()
+    if keyword_field:
+        options = [k.strip().lower() for k in keyword_field.split("|") if k.strip()]
+        return any(k in answer_lower for k in options)
+    return "don't know" in answer_lower or "do not know" in answer_lower
 
 
 def run_evaluation(data_dir: str, questions_path: str, prompt_version: str) -> pd.DataFrame:
@@ -17,15 +31,11 @@ def run_evaluation(data_dir: str, questions_path: str, prompt_version: str) -> p
         result = rag.ask(row["question"])
         answer = result["answer"]
         keyword = row["expected_keyword"]
-        if keyword:
-            correct = keyword.lower() in answer.lower()
-        else:
-            correct = "don't know" in answer.lower()
         rows.append({
             "question": row["question"],
             "expected_keyword": keyword,
             "answer": answer,
-            "correct": correct,
+            "correct": is_correct(answer, keyword),
             "prompt_version": prompt_version,
         })
     return pd.DataFrame(rows)

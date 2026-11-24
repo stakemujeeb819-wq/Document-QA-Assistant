@@ -1,1 +1,13 @@
 ﻿LlamaIndex is a data framework that helps connect private documents to large language models.
+
+LlamaIndex provides data connectors that ingest existing data sources and formats, including APIs, PDFs, documents, and SQL databases.
+
+LlamaIndex structures data into indices and graphs so that it can be easily used with LLMs. A vector store index stores embeddings of text chunks and retrieves the most similar chunks for a query.
+
+Chunking splits long documents into smaller pieces, usually a few hundred characters each, so that relevant passages can be found and sent to the model within its context limit.
+
+A query engine takes a question, retrieves relevant context from the index, and asks the language model to write an answer based on that context.
+
+LlamaIndex offers both a high-level API for quick starts and lower-level APIs that let advanced users customize retrievers, indices, and response synthesizers.
+
+Retrieval augmented generation (RAG) combines a search step with a language model so the model answers from retrieved private documents instead of only from its training data.
