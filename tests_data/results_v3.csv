@@ -1,0 +1,5 @@
+question,expected_keyword,answer,correct,prompt_version
+What is LlamaIndex?,framework,LlamaIndex is a data framework that helps connect private documents to large language models.,True,v3_refuse
+What does LlamaIndex connect?,documents,private documents to large language models,True,v3_refuse
+Who created LlamaIndex?,,I don't know.,True,v3_refuse
+What is a vector store?,,I don't know.,True,v3_refuse
