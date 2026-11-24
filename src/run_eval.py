@@ -1,5 +1,6 @@
 import pandas as pd
 
+from src.db import init_db, save_interaction
 from src.document_store import DocumentStore
 from src.evaluation import load_questions
 from src.rag import RAGPipeline
@@ -21,7 +22,9 @@ def is_correct(answer: str, keyword_field: str) -> bool:
 
 
 def run_evaluation(data_dir: str, questions_path: str, prompt_version: str) -> pd.DataFrame:
-    """Ask every test question and mark the answer as correct or wrong."""
+    """Ask every test question, save each run to SQLite, and mark the answer."""
+    init_db()
+
     docs = DocumentStore(data_dir).load()
     rag = RAGPipeline(docs, prompt_version=prompt_version)
     questions = load_questions(questions_path)
@@ -31,6 +34,9 @@ def run_evaluation(data_dir: str, questions_path: str, prompt_version: str) -> p
         result = rag.ask(row["question"])
         answer = result["answer"]
         keyword = row["expected_keyword"]
+
+        save_interaction(row["question"], answer, result["sources"], prompt_version)
+
         rows.append({
             "question": row["question"],
             "expected_keyword": keyword,
