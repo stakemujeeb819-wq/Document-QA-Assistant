@@ -3,3 +3,4 @@ __pycache__/
 .env
 *.pycuploads/
 tests_data/app.db
+tests_data/chroma_db/
