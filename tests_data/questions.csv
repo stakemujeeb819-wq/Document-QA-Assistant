@@ -1,13 +1,13 @@
-question,expected_keyword
-What is LlamaIndex?,framework
-What does LlamaIndex connect?,documents
-What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL
-What does a vector store index store?,embeddings
-What is chunking?,chunks|pieces|splits
-What does a query engine do?,retrieves|pulls|relevant
-What is retrieval augmented generation?,search
-What do LlamaIndex's lower-level APIs allow?,customize
-Who created LlamaIndex?,
-What is a vector store?,embeddings
-What is the capital of France?,
-Does LlamaIndex train large language models?,
+question,expected_keyword,reference
+What is LlamaIndex?,framework,"LlamaIndex is a data framework that helps connect private documents to large language models."
+What does LlamaIndex connect?,documents,"LlamaIndex connects private documents to large language models."
+What kinds of data sources can LlamaIndex ingest?,APIs|PDFs|SQL,"LlamaIndex can ingest data from APIs, PDFs, documents, and SQL databases."
+What does a vector store index store?,embeddings,"A vector store index stores embeddings of text chunks."
+What is chunking?,chunks|pieces|splits,"Chunking splits long documents into smaller pieces so relevant passages can be found and sent to the model."
+What does a query engine do?,retrieves|pulls|relevant,"A query engine retrieves relevant context from the index and asks the language model to answer from it."
+What is retrieval augmented generation?,search,"Retrieval augmented generation (RAG) combines a search step with a language model so the model answers from retrieved private documents instead of only from its training data."
+What do LlamaIndex's lower-level APIs allow?,customize,"They let advanced users customize retrievers, indices, and response synthesizers."
+Who created LlamaIndex?,,"The notes do not say who created LlamaIndex, so the answer should be that it is unknown."
+What is a vector store?,embeddings,"A vector store is an index that stores embeddings of text chunks and retrieves similar chunks."
+What is the capital of France?,,"The notes do not cover this, so the answer should be that it is unknown."
+Does LlamaIndex train large language models?,,"The notes do not say LlamaIndex trains models, so the answer should be that it is unknown."
